@@ -5,17 +5,18 @@
 }
 
 :root {
-    --myDarkCyan: #1c5369;
+    --myDarkerGrey: #17171f;
     --myDarkGrey: #1d1f29;
   }
 
 html {
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 18px;
     color: white;
 }
 
 body {
-    background-color: black;
+    background-color: var(--myDarkerGrey);
 }
 
 main {
@@ -29,8 +30,20 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    box-shadow: 1px 1px 10px black;
     padding: 0.5rem 5vw;
-  }
+}
+
+header h1 a {
+    text-decoration: none;
+    color: white;
+}
+
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
 
 .navlist {
     list-style: none;
@@ -38,24 +51,29 @@ header {
 
 .navlist li {
     display: inline-block;
-    padding: 0.2em 0.8em;
+    padding: 0.2em 0.6em;
 }
 
 .navlist li a {
     text-decoration: none;
+    padding: 0.2em ;
     color: white;
 }
 
+.navlist li a:hover {
+    color: rgb(177, 177, 177);
+}
+
 p {
-    grid-column: 3;
+    grid-column: 3/4;
     margin: 5vh 0;
 }
 
-#hutaoimg {
-    grid-column: 3;
+.hutaoimg {
+    grid-column: 3/4;
     width: 600px;
 }
 
-#hutaoimg img {
+.hutaoimg img {
     width: 100%;
 }
