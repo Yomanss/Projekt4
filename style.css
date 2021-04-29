@@ -1,102 +1,109 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 :root {
-    --myDarkerGrey: #231f35;
-    --myDarkGrey: #1d1f29;
-    --myTextBackground: #20222b;
-  }
+  --myDarkerGrey: #231f35;
+  --myDarkGrey: #1d1f29;
+  --myTextBackground: #20222b;
+}
 
 html {
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 18px;
-    color: white;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  color: white;
 }
 
 body {
-    background-color: var(--myDarkerGrey);
+  background-color: var(--myDarkerGrey);
 }
 
 main {
-    display: grid;
-    grid-template-columns: 5vw 15vw 1fr 15vw 5vw;
-    grid-template-rows: auto;
+  display: grid;
+  grid-template-columns: 5vw 15vw 1fr 15vw 5vw;
+  grid-template-rows: auto;
 }
 
 header {
-    background-color: var(--myDarkGrey);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    box-shadow: 1px 1px 10px black;
-    padding: 0.5rem 5vw;
+  background-color: var(--myDarkGrey);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 1px 1px 10px black;
+  padding: 0.5rem 5vw;
 }
 
 header h1 a {
-    text-decoration: none;
-    color: white;
+  text-decoration: none;
+  color: white;
 }
 
 .sticky {
-    position: fixed;
-    top: 0;
-    width: 100%;
+  position: fixed;
+  top: 0;
+  width: 100%;
 }
 
 .navlist {
-    list-style: none;
+  list-style: none;
 }
 
 .navlist li {
-    display: inline-block;
-    padding: 0.2em 0.6em;
+  display: inline-block;
+  padding: 0.2em 0.6em;
 }
 
 .navlist li a {
-    text-decoration: none;
-    padding: 0.2em ;
-    color: white;
+  text-decoration: none;
+  padding: 0.2em;
+  color: white;
 }
 
 .navlist li a:hover {
-    color: rgb(177, 177, 177);
-    border-bottom: 5px green solid;
+  color: rgb(177, 177, 177);
+  border-bottom: 5px green solid;
 }
 
-p {
-    grid-column: 3/4;
-    margin: 5vh 0;
-    background-color: var(--myTextBackground);
-    border-radius: 5px;
-    box-shadow: 2px 2px 5px 2px black;
-    padding: 1em;
+.textP {
+  grid-column: 3/4;
+  margin: 5vh 0;
+  background-color: var(--myTextBackground);
+  border-radius: 5px;
+  box-shadow: 2px 2px 5px 2px black;
+  padding: 1em;
 }
 
 .character_gallery {
-    grid-column: 3/4;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
+  grid-column: 3/4;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  background-color: grey;
+}
 
+.character_card {
+  margin: 0.8em;
+  padding: 0.2em;
+}
+
+.character_card p {
+  text-align: center;
+  font-size: 0.8rem;
+}
+
+.character_card p a {
+  color: white;
+  text-decoration: none;
+  padding: 0.4em;
 }
 
 .gallery_img {
-    width: 106px;
-    margin: 1em;
-    background: var(--myDarkGrey);
+  width: 85px;
+  background: var(--myDarkGrey);
 }
 
-
-.hutaoimg {
-    grid-column: 3/4;
-    margin: 0 auto;
-    width: 600px;
+.gallery_img img {
+  width: 100%;
 }
-
-.hutaoimg img, .gallery_img img {
-    width: 100%;
-}
-
