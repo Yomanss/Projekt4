@@ -100,7 +100,7 @@ header h1 a {
 }
 
 .gallery_img {
-  width: 85px;
+  width: 100px;
   background: var(--myDarkGrey);
 }
 

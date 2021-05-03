@@ -2,12 +2,13 @@
 
 let characterGallery = document.querySelector(".character_gallery");
 
-function createCharacterCard(name, vision) {
+function createCharacterCard(name) {
   let characterCard = document.createElement("div");
   characterCard.classList.add("character_card");
   let galleryImg = document.createElement("div");
+
   galleryImg.classList.add("gallery_img");
-  let galleryImgImg = document.createElement("img");
+  let characterImg = document.createElement("img");
   let fullName = name.charAt(0).toUpperCase() + name.slice(1);
   switch (fullName) {
     case "Traveler-geo":
@@ -20,16 +21,25 @@ function createCharacterCard(name, vision) {
       fullName = "Hu Tao";
       break;
   }
-  galleryImgImg.setAttribute(
+  characterImg.setAttribute(
     "src",
     "https://rerollcdn.com/GENSHIN/Characters/" + fullName + ".png"
   );
-  galleryImgImg.setAttribute("alt", name);
-  galleryImg.append(galleryImgImg);
+  characterImg.setAttribute("alt", name);
+  let imgAnchor = document.createElement("a");
+  imgAnchor.href="resources.html";
+  imgAnchor.appendChild(characterImg);
+  galleryImg.append(imgAnchor);
   characterCard.append(galleryImg);
+
+  let characterName_a = document.createElement("a");
+  let characterName_link = document.createTextNode(fullName);
+  characterName_a.appendChild(characterName_link);
+  characterName_a.title = fullName;
+  characterName_a.href = "resources.html";
   let characterName = document.createElement("p");
   characterName.classList.add("character_name");
-  characterName.innerText = fullName;
+  characterName.append(characterName_a)
   characterCard.append(characterName);
   return characterCard;
 }
@@ -38,8 +48,8 @@ function update() {
   fetch("https://api.genshin.dev/characters/")
     .then((res) => res.json())
     .then((data) => {
-      data.forEach((name, vision) => {
-        characterGallery.append(createCharacterCard(name, vision));
+      data.forEach((name) => {
+        characterGallery.append(createCharacterCard(name));
       });
     });
 }
