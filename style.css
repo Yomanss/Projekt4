@@ -107,3 +107,8 @@ header h1 a {
 .gallery_img img {
   width: 100%;
 }
+
+.characterArticle {
+  grid-column: 3/4;
+  margin: 10vh 0;
+}

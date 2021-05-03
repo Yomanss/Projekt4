@@ -28,7 +28,7 @@ function createCharacterCard(name) {
   );
   characterImg.setAttribute("alt", name);
   let imgAnchor = document.createElement("a");
-  imgAnchor.href = "resources.html";
+  imgAnchor.href = "characterPage.html";
   imgAnchor.appendChild(characterImg);
   galleryImg.append(imgAnchor);
   characterCard.append(galleryImg);
