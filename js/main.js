@@ -3,7 +3,6 @@
 let characterGallery = document.querySelector(".character_gallery");
 
 function createCharacterCard(name) {
-
   let characterCard = document.createElement("div");
   characterCard.classList.add("character_card");
   let galleryImg = document.createElement("div");
@@ -28,28 +27,28 @@ function createCharacterCard(name) {
   );
   characterImg.setAttribute("alt", name);
   let imgAnchor = document.createElement("a");
-  imgAnchor.href = "characterPage.html";
+  imgAnchor.href = "characterPage.html?characterID=" + fullName;
   imgAnchor.appendChild(characterImg);
   galleryImg.append(imgAnchor);
   characterCard.append(galleryImg);
 
   fetch("https://api.genshin.dev/characters/" + name)
-  .then((res) => res.json())
-  .then((data) => {
-    let vision = data.vision;
-    let characterElement = document.createElement("p");
-    switch(vision) {
-      case "Pyro":
-        characterElement.classList.add("element_pyro");
-        break;
-      case "Geo":
-        characterElement.classList.add("element_geo");
-        break;
-    }
-    characterElement.innerText = "Element: " + vision;
-    characterElement.classList.add("character_name");
-    characterCard.append(characterElement);
-  });
+    .then((res) => res.json())
+    .then((data) => {
+      let vision = data.vision;
+      let characterElement = document.createElement("p");
+      switch (vision) {
+        case "Pyro":
+          characterElement.classList.add("element_pyro");
+          break;
+        case "Geo":
+          characterElement.classList.add("element_geo");
+          break;
+      }
+      characterElement.innerText = "Element: " + vision;
+      characterElement.classList.add("character_name");
+      characterCard.append(characterElement);
+    });
 
   let characterName_a = document.createElement("a");
   let characterName_link = document.createTextNode(fullName);

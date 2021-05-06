@@ -55,6 +55,7 @@ header h1 a {
   padding: 0.2em 0.6em;
 }
 
+
 .navlist li a {
   text-decoration: none;
   padding: 0.2em;
@@ -108,7 +109,12 @@ header h1 a {
   width: 100%;
 }
 
+.wikiLayout{
+  display: grid;
+  grid-template-columns: 15vw 1fr 1fr 1fr 15vw;
+}
+
 .characterArticle {
-  grid-column: 3/4;
+  grid-column: 2/3;
   margin: 10vh 0;
 }
