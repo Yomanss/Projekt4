@@ -26,6 +26,14 @@ main {
   grid-template-rows: auto;
 }
 
+footer{
+  padding: 1rem 0;
+  margin: 3rem 0 0 0;
+  box-shadow: -1px -1px 10px black;
+  background-color: var(--myDarkGrey);
+
+}
+
 header {
   background-color: var(--myDarkGrey);
   display: flex;
@@ -55,7 +63,6 @@ header h1 a {
   padding: 0.2em 0.6em;
 }
 
-
 .navlist li a {
   text-decoration: none;
   padding: 0.2em;
@@ -64,6 +71,10 @@ header h1 a {
 
 .navlist li a:hover {
   color: rgb(177, 177, 177);
+  border-bottom: 5px green solid;
+}
+
+.currentPage a{
   border-bottom: 5px green solid;
 }
 
