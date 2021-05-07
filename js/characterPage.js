@@ -9,14 +9,16 @@ const urlVarParam = new URLSearchParams(urlVarString);
 let characterID = urlVarParam.get("character_ID");
 console.log(characterID);
 
-function createCharacterArticle(description) {
+function createCharacterArticle(description, talentSkill) {
+let name = characterID.charAt(0).toUpperCase() + characterID.slice(1);
 let articleSection = document.createElement("section");
 let sectionH2 = document.createElement("h2");
-sectionH2.innerHTML = "Amber";
+sectionH2.innerHTML = name;
 articleSection.append(sectionH2);
 let sectionDescription = document.createElement("p");
 sectionDescription.innerText = description;
 articleSection.append(sectionDescription);
+console.log(talentSkill);
 return articleSection;
 }
 
@@ -25,7 +27,8 @@ function updateArticle() {
     .then((res) => res.json())
     .then((data) => {
         let description = data.description;
-        characterArticle.append(createCharacterArticle(description));
+        let talentSkill = data.talentSkill;
+        characterArticle.append(createCharacterArticle(description, talentSkill));
     });
 }
 
