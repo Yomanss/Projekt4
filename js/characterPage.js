@@ -1,6 +1,7 @@
 "use strict";
 
 let factBox = document.querySelector(".fact_box");
+let articleH2 = document.querySelector(".character_article_h2");
 let characterArticle = document.querySelector(".character_article");
 
 const urlVarString = window.location.search;
@@ -8,23 +9,26 @@ console.log(urlVarString);
 const urlVarParam = new URLSearchParams(urlVarString);
 let characterID = urlVarParam.get("character_ID");
 let displayedName = characterID.charAt(0).toUpperCase() + characterID.slice(1);
+let H3Name = displayedName;
 switch (displayedName) {
   case "Traveler-geo":
     displayedName = "Traveler (Geo)";
+    H3Name = "Traveler";
     break;
   case "Traveler-anemo":
     displayedName = "Traveler (Anemo)";
+    H3Name = "Traveler";
     break;
   case "Hu-tao":
     displayedName = "Hu Tao";
     break;
 }
-console.log(characterID);
 
 function createCharacterArticle(description, talentSkill) {
+  articleH2.innerHTML = displayedName;
   let articleSection = document.createElement("section");
-  let sectionH2 = document.createElement("h2");
-  sectionH2.innerHTML = displayedName;
+  let sectionH2 = document.createElement("h3");
+  sectionH2.innerHTML = "Description";
   articleSection.append(sectionH2);
   let sectionDescription = document.createElement("p");
   sectionDescription.innerText = description;
@@ -46,6 +50,9 @@ function updateArticle() {
 
 function createFactBox() {
   let factboxDiv = document.createElement("div");
+  let factBoxH3 = document.createElement("h3");
+  factBoxH3.innerHTML = H3Name; 
+  factboxDiv.append(factBoxH3);
   let factboxImgDiv = document.createElement("div");
   factboxImgDiv.classList.add("factbox_imgDiv");
   let factboxImg = document.createElement("img");
