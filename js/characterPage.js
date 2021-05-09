@@ -8,6 +8,17 @@ console.log(urlVarString);
 const urlVarParam = new URLSearchParams(urlVarString);
 let characterID = urlVarParam.get("character_ID");
 let displayedName = characterID.charAt(0).toUpperCase() + characterID.slice(1);
+switch (displayedName) {
+  case "Traveler-geo":
+    displayedName = "Traveler (Geo)";
+    break;
+  case "Traveler-anemo":
+    displayedName = "Traveler (Anemo)";
+    break;
+  case "Hu-tao":
+    displayedName = "Hu Tao";
+    break;
+}
 console.log(characterID);
 
 function createCharacterArticle(description, talentSkill) {
@@ -34,17 +45,24 @@ function updateArticle() {
 }
 
 function createFactBox() {
-    let factboxDiv = document.createElement("div");
+  let factboxDiv = document.createElement("div");
   let factboxImgDiv = document.createElement("div");
   factboxImgDiv.classList.add("factbox_imgDiv");
   let factboxImg = document.createElement("img");
   factboxImg.setAttribute("src", "./images/" + displayedName + ".jpg");
+  if (
+    displayedName == "Traveler (Geo)" ||
+    displayedName == "Traveler (Anemo)"
+  ) {
+    factboxImg.setAttribute("src", "./images/Traveler.jpg");
+  } else {
+    factboxImg.setAttribute("src", "./images/" + displayedName + ".jpg");
+  }
   factboxImg.setAttribute("alt", displayedName);
   factboxImg.classList.add("factbox_img");
   factboxImgDiv.append(factboxImg);
   factboxDiv.append(factboxImgDiv);
   return factboxDiv;
-
 }
 
 updateArticle();
