@@ -26,12 +26,11 @@ main {
   grid-template-rows: auto;
 }
 
-footer{
+footer {
   padding: 1rem 0;
   margin: 3rem 0 0 0;
   box-shadow: -1px -1px 10px black;
   background-color: var(--myDarkGrey);
-
 }
 
 header {
@@ -74,7 +73,7 @@ header h1 a {
   border-bottom: 5px green solid;
 }
 
-.currentPage a{
+.currentPage a {
   border-bottom: 5px green solid;
 }
 
@@ -120,7 +119,7 @@ header h1 a {
   width: 100%;
 }
 
-.wikiLayout{
+.wikiLayout {
   display: grid;
   grid-template-columns: 15vw 1fr 1fr 1fr 15vw;
 }
@@ -132,7 +131,9 @@ header h1 a {
 
 .fact_box {
   grid-column: 4;
-  margin: 3vh 0 0 3vw;
+  margin: 1vh 0 0 0vw;
+  padding: 0.5rem;
+  border: 2px solid white;
 }
 
 .fact_box h3 {
@@ -147,6 +148,12 @@ header h1 a {
 
 .factbox_img {
   width: 100%;
+}
+
+.factbox_ul {
+  text-align: center;
+  list-style: none;
+  font-size: 0.9rem;
 }
 
 .character_article {

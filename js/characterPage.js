@@ -24,35 +24,13 @@ switch (displayedName) {
     break;
 }
 
-function createCharacterArticle(description, talentSkill) {
-  articleH2.innerHTML = displayedName;
-  let articleSection = document.createElement("section");
-  let sectionH2 = document.createElement("h3");
-  sectionH2.innerHTML = "Description";
-  articleSection.append(sectionH2);
-  let sectionDescription = document.createElement("p");
-  sectionDescription.innerText = description;
-  articleSection.append(sectionDescription);
-  console.log(talentSkill);
-  return articleSection;
-}
-
-function updateArticle() {
-  fetch("https://api.genshin.dev/characters/" + characterID)
-    .then((res) => res.json())
-    .then((data) => {
-      let description = data.description;
-      let talentSkill = data.talentSkill;
-      characterArticle.append(createCharacterArticle(description, talentSkill));
-      factBox.append(createFactBox());
-    });
-}
-
-function createFactBox() {
+function createFactBox(vision, birthday, nation, affiliation, weapon) {
   let factboxDiv = document.createElement("div");
+
   let factBoxH3 = document.createElement("h3");
-  factBoxH3.innerHTML = H3Name; 
+  factBoxH3.innerHTML = H3Name;
   factboxDiv.append(factBoxH3);
+
   let factboxImgDiv = document.createElement("div");
   factboxImgDiv.classList.add("factbox_imgDiv");
   let factboxImg = document.createElement("img");
@@ -69,7 +47,62 @@ function createFactBox() {
   factboxImg.classList.add("factbox_img");
   factboxImgDiv.append(factboxImg);
   factboxDiv.append(factboxImgDiv);
+
+  let factboxUl = document.createElement("ul");
+  factboxUl.classList.add("factbox_ul");
+  if (H3Name == "Traveler") {
+    let listItems = ["Vision: " + vision, "Weapon: " + weapon];
+    for (let i = 0; i < listItems.length; i++) {
+      let factboxLi = document.createElement("li");
+      factboxLi.appendChild(document.createTextNode(listItems[i]));
+      factboxUl.append(factboxLi);
+    }
+  } else {
+    birthday = birthday.substring("0000-".length);
+    let listItems = [
+      "Nation: " + nation,
+      "Affiliation: " + affiliation,
+      "Vision: " + vision,
+      "Weapon: " + weapon,
+      "Birthday: " + birthday,
+    ];
+    for (let i = 0; i < listItems.length; i++) {
+      let factboxLi = document.createElement("li");
+      factboxLi.appendChild(document.createTextNode(listItems[i]));
+      factboxUl.append(factboxLi);
+    }
+  }
+  factboxDiv.append(factboxUl);
+
   return factboxDiv;
+}
+
+function createCharacterDescription(description) {
+  articleH2.innerHTML = displayedName;
+  let articleSection = document.createElement("section");
+  let sectionH3 = document.createElement("h3");
+  sectionH3.innerHTML = "Description";
+  articleSection.append(sectionH3);
+  let sectionDescription = document.createElement("p");
+  sectionDescription.innerText = description;
+  articleSection.append(sectionDescription);
+  return articleSection;
+}
+
+function updateArticle() {
+  fetch("https://api.genshin.dev/characters/" + characterID)
+    .then((res) => res.json())
+    .then((data) => {
+      let description = data.description;
+      let talentSkill = data.talentSkill;
+      let vision = data.vision;
+      let birthday = data.birthday;
+      let nation = data.nation;
+      let affiliation = data.affiliation;
+      let weapon = data.weapon;
+      characterArticle.append(createCharacterDescription(description));
+      factBox.append(createFactBox(vision, birthday, nation, affiliation, weapon));
+    });
 }
 
 updateArticle();
