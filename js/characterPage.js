@@ -2,7 +2,7 @@
 
 let factBox = document.querySelector(".fact_box");
 let articleH2 = document.querySelector(".character_article_h2");
-let characterArticle = document.querySelector(".character_article");
+let descriptionArticle = document.querySelector("#description_text");
 
 const urlVarString = window.location.search;
 console.log(urlVarString);
@@ -84,7 +84,9 @@ function createCharacterDescription(description) {
   sectionH3.innerHTML = "Description";
   articleSection.append(sectionH3);
   let sectionDescription = document.createElement("p");
-  sectionDescription.innerText = description;
+  sectionDescription.innerText =
+    description +
+    " Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea provident, alias omnis est praesentium impedit ducimus dolor laudantium commodi,soluta eaque voluptates, assumenda dolore! Quasi nostrum distinctio";
   articleSection.append(sectionDescription);
   return articleSection;
 }
@@ -100,8 +102,10 @@ function updateArticle() {
       let nation = data.nation;
       let affiliation = data.affiliation;
       let weapon = data.weapon;
-      characterArticle.append(createCharacterDescription(description));
-      factBox.append(createFactBox(vision, birthday, nation, affiliation, weapon));
+      descriptionArticle.append(createCharacterDescription(description));
+      factBox.append(
+        createFactBox(vision, birthday, nation, affiliation, weapon)
+      );
     });
 }
 
