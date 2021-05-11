@@ -50,14 +50,8 @@ function createCharacterCard(name) {
       characterCard.append(characterElement);
     });
 
-  let characterName_a = document.createElement("a");
-  let characterName_link = document.createTextNode(fullName);
-  characterName_a.appendChild(characterName_link);
-  characterName_a.title = fullName;
-  characterName_a.href = "characterPage.html";
   let characterName = document.createElement("p");
-  characterName.classList.add("character_name");
-  characterName.append(characterName_a);
+  characterName.innerText = fullName;
   characterCard.append(characterName);
   return characterCard;
 }

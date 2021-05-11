@@ -91,21 +91,19 @@ header h1 a {
 .character_card {
   margin: 0.8em;
   padding: 0.2em;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }
 
-.character_name {
-  text-align: center;
+.character_card p {
+  color: white;
+  text-decoration: none;
   font-size: 0.8rem;
 }
 
-.character_card p a {
-  color: white;
-  text-decoration: none;
-  padding: 0.4em;
-}
-
 .gallery_img {
-  width: 100px;
+  width: 90px;
   background: var(--myDarkGrey);
 }
 
@@ -228,6 +226,28 @@ header h1 a {
 
   header {
     flex-direction: column;
+  }
+
+  main {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .character_gallery {
+    grid-column: 0;
+  }
+
+  .textP, .character_gallery {
+    margin: 7.5vh 5vw 2vh 5vw;
+  }
+
+  .gallery_img {
+    width: 80px;
+    background: var(--myDarkGrey);
+  }
+
+  .character_card p {
+    font-size: 0.7rem;
   }
 }
 
