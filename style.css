@@ -47,12 +47,6 @@ header h1 a {
   color: white;
 }
 
-.sticky {
-  position: fixed;
-  top: 0;
-  width: 100%;
-}
-
 .navlist {
   list-style: none;
 }
@@ -215,10 +209,47 @@ header h1 a {
   }
 
   .fact_box {
-    width: 50vw;
+    width: 45vw;
     margin: 0 auto;
     padding: 0.3rem;
     background-color: rgba(87, 104, 109, 0.507);
     border-radius: 10px;
+  }
+
+  .tableContent {
+    width: 30vw;
+    margin: 5vh 0 2.5vh 8vw;
+    grid-row: 2/3;
+  }
+
+  .character_article_h2 {
+    margin: 10vh auto 2.5vh auto;
+  }
+
+  header {
+    flex-direction: column;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .fact_box {
+    width: 50vw;
+  }
+  .factbox_imgDiv {
+    width: 150px;
+  }
+
+  .tableContent {
+    width: 35vw;
+  }
+}
+
+@media only screen and (max-width: 340px) {
+  .fact_box {
+    width: 65vw;
+  }
+
+  .tableContent {
+    width: 45vw;
   }
 }

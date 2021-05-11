@@ -96,7 +96,7 @@ function updateArticle() {
     .then((res) => res.json())
     .then((data) => {
       let description = data.description;
-      let talentSkill = data.talentSkill;
+      let skillTalents = data.skillTalents;
       let vision = data.vision;
       let birthday = data.birthday;
       let nation = data.nation;
@@ -106,6 +106,7 @@ function updateArticle() {
       factBox.append(
         createFactBox(vision, birthday, nation, affiliation, weapon)
       );
+      console.log(skillTalents);
     });
 }
 
