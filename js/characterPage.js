@@ -106,7 +106,6 @@ function updateArticle() {
       factBox.append(
         createFactBox(vision, birthday, nation, affiliation, weapon)
       );
-      console.log(skillTalents);
     });
 }
 

@@ -69,11 +69,11 @@ header h1 a {
 
 .navlist li a:hover {
   color: rgb(177, 177, 177);
-  border-bottom: 5px green solid;
+  border-bottom: 5px turquoise solid;
 }
 
 .currentPage a {
-  border-bottom: 5px green solid;
+  border-bottom: 5px turquoise solid;
 }
 
 .textP {
