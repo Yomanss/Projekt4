@@ -189,7 +189,7 @@ header h1 a {
 
 .tableContent {
   width: 18vw;
-  margin: 10vh 0 0;
+  margin: 10vh 0 5vh;
   grid-row: 2/3;
 }
 
